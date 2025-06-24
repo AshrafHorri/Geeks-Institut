@@ -7,19 +7,10 @@ class Pagination:
         self.page_size = int(page_size)
         if self.page_size <= 0:
             raise ValueError("page_size must be a positive integer.")
-
-        # The current page index (0-based)
         self.current_idx = 0
-        
-        # Calculate the total number of pages
-        # math.ceil rounds up to the nearest whole number (e.g., 2.1 becomes 3)
         self.total_pages = math.ceil(len(self.items) / self.page_size)
-
     # --- Step 3: Implement get_visible_items() Method ---
     def get_visible_items(self):
-        """
-        Returns a list of items for the current page.
-        """
         start_index = self.current_idx * self.page_size
         end_index = start_index + self.page_size
         return self.items[start_index:end_index]
