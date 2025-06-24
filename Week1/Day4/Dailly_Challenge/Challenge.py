@@ -1,22 +1,9 @@
 import math
 
-# --- Step 1 & 2: Create the Pagination Class and __init__ Method ---
 class Pagination:
-    """
-    A class to simulate a basic pagination system for a list of items.
-    """
-    def __init__(self, items=None, page_size=10):
-        """
-        Initializes the Pagination object.
 
-        Args:
-            items (list, optional): A list of items to be paginated. Defaults to None.
-            page_size (int, optional): The number of items per page. Defaults to 10.
-        """
-        # If no items are provided, initialize with an empty list
+    def __init__(self, items=None, page_size=10):
         self.items = items if items is not None else []
-        
-        # Ensure page_size is a positive integer
         self.page_size = int(page_size)
         if self.page_size <= 0:
             raise ValueError("page_size must be a positive integer.")
@@ -39,32 +26,22 @@ class Pagination:
 
     # --- Step 4: Implement Navigation Methods ---
     def go_to_page(self, page_num):
-        """
-        Navigates to a specific page number (1-based).
 
-        Args:
-            page_num (int): The page number to go to.
-        
-        Raises:
-            ValueError: If the page number is out of the valid range.
-        """
-        # User input is 1-based, but our index is 0-based
         if 1 <= page_num <= self.total_pages:
             self.current_idx = page_num - 1
         else:
             raise ValueError(f"Invalid page number. Please choose a page between 1 and {self.total_pages}.")
-        # This method does not return self, as per instructions
+
         
     def next_page(self):
         """Moves to the next page, if possible. Returns self for chaining."""
-        # We can move to the next page if we are not already on the last one
         if self.current_idx < self.total_pages - 1:
             self.current_idx += 1
-        return self # Return self to allow method chaining
+        return self
 
     def previous_page(self):
         """Moves to the previous page, if possible. Returns self for chaining."""
-        # We can move to the previous page if we are not on the first one
+
         if self.current_idx > 0:
             self.current_idx -= 1
         return self
@@ -88,7 +65,7 @@ class Pagination:
         Returns a string representation of the visible items on the current page.
         """
         visible_items = self.get_visible_items()
-        # Join each item into a string, separated by a newline character
+
         return "\n".join(str(item) for item in visible_items)
 
 
@@ -96,15 +73,11 @@ class Pagination:
 if __name__ == "__main__":
     alphabetList = list("abcdefghijklmnopqrstuvwxyz")
     p = Pagination(alphabetList, 4)
-
     print("--- Testing get_visible_items ---")
-    print(p.get_visible_items())  # Expected: ['a', 'b', 'c', 'd']
-
+    print(p.get_visible_items())
     print("\n--- Testing next_page ---")
     p.next_page()
-    print(p.get_visible_items())  # Expected: ['e', 'f', 'g', 'h']
-    
-    # Test method chaining
+    print(p.get_visible_items())
     print("\n--- Testing Method Chaining ---")
     p.next_page().next_page()
     print(f"Current Page (after chaining): {p.current_idx + 1}")
@@ -112,14 +85,10 @@ if __name__ == "__main__":
 
     print("\n--- Testing last_page ---")
     p.last_page()
-    print(p.get_visible_items())  # Expected: ['y', 'z']
-
-    # The instructions asked for this specific test case.
-    # It demonstrates that p.current_idx is 0-based.
+    print(p.get_visible_items())
     print("\n--- Testing a specific go_to_page case ---")
     p.go_to_page(7) 
-    print(f"Current page index + 1: {p.current_idx + 1}") # Expected: 7
-
+    print(f"Current page index + 1: {p.current_idx + 1}")
     print("\n--- Testing go_to_page with invalid input ---")
     try:
         p.go_to_page(0)
