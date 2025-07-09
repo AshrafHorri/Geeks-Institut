@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Test</title>
+</head>
+<body>
+    <h1>Sound Test</h1>
+    <p>Click the buttons below to test if the sounds work:</p>
+    
+    <button onclick="playSound('65')">Test Clap (A)</button>
+    <button onclick="playSound('83')">Test Hihat (S)</button>
+    <button onclick="playSound('68')">Test Kick (D)</button>
+    
+    <audio id="audio-65" src="https://raw.githubusercontent.com/wesbos/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/clap.wav"></audio>
+    <audio id="audio-83" src="https://raw.githubusercontent.com/wesbos/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/hihat.wav"></audio>
+    <audio id="audio-68" src="https://raw.githubusercontent.com/wesbos/JavaScript30/master/01%20-%20JavaScript%20Drum%20Kit/sounds/kick.wav"></audio>
+    
+    <script>
+        function playSound(keyCode) {
+            const audio = document.getElementById(`audio-${keyCode}`);
+            if (!audio) return;
+            
+            audio.currentTime = 0;
+            audio.play();
+            
+            console.log(`Playing sound for key ${keyCode}`);
+        }
+    </script>
+</body>
+</html>
