@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List Application</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="Exercise1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Todo List</h1>
+        
+        <div class="todo-input">
+            <input type="text" id="todoInput" placeholder="Add a new task...">
+            <button id="addTodoBtn" class="btn add-btn">
+                <span class="material-icons">add</span>
+            </button>
+        </div>
+        
+        <div class="filter-buttons">
+            <button id="allFilter" class="filter-btn active">All</button>
+            <button id="activeFilter" class="filter-btn">Active</button>
+            <button id="completedFilter" class="filter-btn">Completed</button>
+        </div>
+        
+        <ul id="todoList" class="todo-list">
+            <!-- Todo items will be added here dynamically -->
+        </ul>
+        
+        <button id="removeAllBtn" class="btn remove-all-btn" disabled>Remove All</button>
+    </div>
+    
+    <script src="Exercise1.js"></script>
+</body>
+</html>

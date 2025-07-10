@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Guessing Game</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="Exercise2.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Color Guessing Game</h1>
+        <div id="game-info">
+            <p>Guess which color matches the RGB value:</p>
+            <h2 id="rgb-display">(255, 255, 255)</h2>
+        </div>
+
+        <div id="difficulty-controls">
+            <button class="difficulty-btn active" data-difficulty="easy">Easy</button>
+            <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+            <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+        </div>
+
+        <div id="timer-container">
+            <div id="timer" class="hidden">Next color in: <span id="countdown">5</span></div>
+        </div>
+
+        <div id="color-container">
+            <!-- Color swatches will be added here dynamically -->
+        </div>
+
+        <div id="rgb-input-container" class="hidden">
+            <label for="red-input">R:</label>
+            <input type="number" id="red-input" min="0" max="255" placeholder="0-255">
+            
+            <label for="green-input">G:</label>
+            <input type="number" id="green-input" min="0" max="255" placeholder="0-255">
+            
+            <label for="blue-input">B:</label>
+            <input type="number" id="blue-input" min="0" max="255" placeholder="0-255">
+            
+            <button id="submit-rgb">Submit</button>
+        </div>
+
+        <div id="message-container">
+            <p id="message"></p>
+        </div>
+
+        <button id="new-game-btn">New Game</button>
+    </div>
+    
+    <script src="Exercise2.js"></script>
+</body>
+</html>
