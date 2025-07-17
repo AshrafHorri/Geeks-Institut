@@ -1,5 +1,5 @@
-console.log([2] === [2]);
-console.log({} === {});
+console.log([2] == [2]);
+console.log({} == {});
 
 const object1 = { number: 5 }; 
 const object2 = object1; 
