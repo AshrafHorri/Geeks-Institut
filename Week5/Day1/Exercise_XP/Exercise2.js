@@ -1,7 +1,9 @@
-const promise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve("success");
-  }, 4000);
-});
-
-promise.then(result => console.log(result));
+	const promise = new Promise((resolve, reject) => {
+	    setTimeout(() => {
+	        resolve("success");
+	    }, 4000);
+	});
+	// Test the promise
+	promise
+	    .then(result => console.log(result))
+	    .catch(error => console.log(error));
